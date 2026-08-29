@@ -1,0 +1,4 @@
+- insert:
+    - id: dsh-wsl-path
+      name: dsh-wsl-path
+      config: {}
