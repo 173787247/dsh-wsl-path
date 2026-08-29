@@ -1,0 +1,21 @@
+{
+  "name": "dsh-wsl-path",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness tool: convert WSL Linux and Windows paths with /mnt/c caveats.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/173787247/dsh-wsl-path.git"
+  },
+  "bugs": {
+    "url": "https://github.com/173787247/dsh-wsl-path/issues"
+  },
+  "homepage": "https://github.com/173787247/dsh-wsl-path#readme",
+  "type": "module",
+  "main": "index.js",
+  "engines": { "node": ">=18" },
+  "scripts": { "test": "node --test test/path.test.js" },
+  "files": ["index.js", "lib", "cordis.patch.yml", "README.md", "LICENSE"],
+  "keywords": ["dsh-plugin", "deepseek-harness", "wsl", "path"],
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } }
+}
