@@ -3,6 +3,7 @@ import {
   adviceFor,
   distroName,
   formatPathResult,
+  pathTags,
   toLinuxPath,
   toWindowsPath,
 } from "./lib/path.js";
@@ -19,7 +20,7 @@ export function apply(ctx) {
     order: 119,
     text: [
       "Use path_convert to translate between Linux (/home, /mnt/c) and Windows (C:\\, \\\\wsl$\\) paths.",
-      "Prefer Linux home for git/npm; treat /mnt/c as Windows NTFS with CRLF and permission caveats.",
+      "Prefer Linux home for git/npm; treat /mnt/c as Windows NTFS with CRLF and permission caveats — pair with mnt_doctor / encoding_doctor.",
     ].join(" "),
   });
 
@@ -50,6 +51,7 @@ export function apply(ctx) {
           input: { type: "string" },
           output: { type: "string" },
           advice: { type: "array", items: { type: "string" } },
+          tags: { type: "array", items: { type: "string" } },
           error: { type: "string" },
         },
       },
@@ -75,7 +77,8 @@ export function apply(ctx) {
           kind: r.kind,
           input,
           output: r.windows,
-          advice: adviceFor(r.kind, direction),
+          tags: pathTags(input),
+          advice: adviceFor(r.kind, direction, { input, output: r.windows }),
         };
       }
       const r = toLinuxPath(input, { distro });
@@ -86,7 +89,8 @@ export function apply(ctx) {
         kind: r.kind,
         input,
         output: r.linux,
-        advice: adviceFor(r.kind, direction),
+        tags: pathTags(r.linux),
+        advice: adviceFor(r.kind, direction, { input, output: r.linux }),
       };
     },
     presentCall: () => ({ card: "generic", title: "Path convert" }),

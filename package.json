@@ -1,7 +1,7 @@
 {
   "name": "dsh-wsl-path",
-  "version": "0.1.0",
-  "description": "DeepSeek Harness tool: convert WSL Linux and Windows paths with /mnt/c caveats.",
+  "version": "0.2.0",
+  "description": "Convert WSL/Windows paths with /mnt tags and mnt_doctor/encoding_doctor pointers.",
   "license": "MIT",
   "repository": {
     "type": "git",
