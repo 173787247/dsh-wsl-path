@@ -8,6 +8,18 @@ DeepSeek Harness 工具：**`path_convert`** — 在 Linux（`/home`、`/mnt/c`�
 
 [English → README.md](./README.md)
 
+## 在套件里的位置
+
+在 WSL 路径和 Windows 路径之间互转，包括 /mnt 前缀。
+
+```mermaid
+flowchart LR
+  agent["dsh agent"] --> tool["path_convert"] --> paths["WSL 路径对比 Windows 路径"]
+```
+
+整套关系图和版本快照：[dsh-wsl-kit 中文说明](https://github.com/173787247/dsh-wsl-kit/blob/master/README.zh.md)。本插件是 **0.2.0**（daily，也在 llm）。不要把那份总表抄进本 README。
+
+
 ---
 ## 兼容性
 

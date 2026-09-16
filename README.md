@@ -8,6 +8,18 @@ Part of **[dsh-wsl-kit](https://github.com/173787247/dsh-wsl-kit)**.
 
 [中文说明 → README.zh.md](./README.zh.md)
 
+## Where it sits
+
+Converts a WSL path to a Windows path and back, including /mnt tags.
+
+```mermaid
+flowchart LR
+  agent["dsh agent"] --> tool["path_convert"] --> paths["WSL path vs Windows path"]
+```
+
+Suite diagram and version snapshot: [dsh-wsl-kit](https://github.com/173787247/dsh-wsl-kit#how-the-pieces-fit). This plugin is **0.2.0** (daily; also in llm). Do not copy that matrix into this README.
+
+
 ---
 ## Compatibility
 
